@@ -10,6 +10,19 @@ partial class Program
         Console.WriteLine($"Product: {product}");
         Console.WriteLine($"Quantity sold: {quantitySold * unitPrice}");
         Console.WriteLine($"Total Amount: {totalAmount:C}");
+    }
 
+    static void SalaryCalculator()
+    {
+        Console.WriteLine("Salary calculator");
+        Console.WriteLine();
+        Console.Write("Enter your name: ");
+        string? name = Console.ReadLine();
+        Console.WriteLine("Enter the number of hours: ");
+        double hours = double.Parse(Console.ReadLine()!);
+        Console.WriteLine("Enter your salary hour rate: ");
+        double rate = double.Parse(Console.ReadLine()!);
+        double salary = hours * rate;
+        Console.WriteLine($"The salary for {name} is {salary}");
     }
 }
