@@ -3,7 +3,8 @@
     static void Main(string[] args)
     {
         #region Logic
-        LoopControlExamples();
+        // LoopControlExamples();
+        LoopGame();
         #endregion
     }
 }
