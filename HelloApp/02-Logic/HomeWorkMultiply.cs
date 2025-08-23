@@ -12,4 +12,27 @@ partial class Program
 
         WriteLine();
     }
+
+    static void PrintFactorialTable(int number)
+    {
+        WriteLine($"Factorial number {number} from 1 to {number}");
+        WriteLine();
+        for (int i = 0; i <= number; i++)
+        {
+            WriteLine($"{i}! = {Factorial(i)}");
+        }
+        WriteLine();
+    }
+
+
+    static int Factorial(int number)
+    {
+        int result = 1;
+        for (int i = 1; i <= number; i++)
+        {
+            result *= i;
+        }
+
+        return result;
+    }
 }
