@@ -5,7 +5,8 @@
         #region Logic
         // LoopControlExamples();
         // Conversions();
-        ConvertionToDateTime();
+        // ConvertionToDateTime();
+        Functions();
         #endregion
     }
 }
