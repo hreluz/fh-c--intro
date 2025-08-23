@@ -10,8 +10,9 @@
         // printMultiplicationTable(7,15);
         // printMultiplicationTable(number:7, tableLimit:15);
         // PrintFactorialTable(5);
+        // Tuples();
         
-        Tuples();
+        AnonymousFunctions();
         #endregion
     }
 }
