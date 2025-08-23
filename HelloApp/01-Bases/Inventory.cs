@@ -36,7 +36,7 @@ partial class Program
                         double total = quantity * prices[i];
                         stock[i] -= quantity;
                         Console.WriteLine($"Success purchase: {total:C}");
-                        Console.WriteLine($"The stock now for this product is $stock[i]}");
+                        Console.WriteLine($"The stock now for this product is ${stock[i]}");
                     }
                     else
                     {
