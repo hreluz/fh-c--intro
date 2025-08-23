@@ -6,13 +6,13 @@ partial class Program
         int y = x;
 
         y = 15;
-        Console.WriteLine($"x:{x}, y:{y}");
+        WriteLine($"x:{x}, y:{y}");
 
         Person person1 = new Person { Name = "Bruce" };
         Person person2 = person1;
 
         person2.Name = "Tim";
-        Console.WriteLine($"person1.Name: {person1.Name}");
+        WriteLine($"person1.Name: {person1.Name}");
     }
 }
 

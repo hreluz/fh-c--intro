@@ -9,11 +9,11 @@ partial class Program
 
         DayOfWeek weekDay = now.DayOfWeek;
 
-        Console.WriteLine($"Date and current hour {now}");
-        Console.WriteLine($"Current day {today}");
-        Console.WriteLine($"One week ago was: {oneWeekAgo.ToString("dd/MM/yyyy")}");
-        Console.WriteLine($"Custom date: {customDate}");
-        Console.WriteLine($"Week day: {weekDay}");
+        WriteLine($"Date and current hour {now}");
+        WriteLine($"Current day {today}");
+        WriteLine($"One week ago was: {oneWeekAgo.ToString("dd/MM/yyyy")}");
+        WriteLine($"Custom date: {customDate}");
+        WriteLine($"Week day: {weekDay}");
 
     }
 }

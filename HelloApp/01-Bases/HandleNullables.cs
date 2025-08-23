@@ -5,21 +5,21 @@ partial class Program
         string firstName = "Bruce";
         string? lastName = null;
 
-        Console.WriteLine($"Name: {firstName}");
+        WriteLine($"Name: {firstName}");
 
         if (lastName != null)
         {
-            Console.WriteLine($"LastName: {lastName}");
+            WriteLine($"LastName: {lastName}");
         }
         else
         {
-            Console.WriteLine($"LastName not specified");
+            WriteLine($"LastName not specified");
         }
 
-        Console.WriteLine($"LastName: {lastName ?? "LastName not specified!"}");
+        WriteLine($"LastName: {lastName ?? "LastName not specified!"}");
 
         string? text = null;
-        Console.WriteLine(text?.Length);
+        WriteLine(text?.Length);
 
     }
 }

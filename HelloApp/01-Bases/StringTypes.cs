@@ -6,16 +6,16 @@ partial class Program
         string message = "Hello " + name;
         string interpolatedMessage = $"Hello {name}";
 
-        Console.WriteLine(message);
-        Console.WriteLine(interpolatedMessage);
-        Console.WriteLine($"Your name has {name.Length} characters");
-        Console.WriteLine($"Your name on uppercase is {name.ToUpper()}");
-        Console.WriteLine($"Your name on lowercase is {name.ToLower()}");
+        WriteLine(message);
+        WriteLine(interpolatedMessage);
+        WriteLine($"Your name has {name.Length} characters");
+        WriteLine($"Your name on uppercase is {name.ToUpper()}");
+        WriteLine($"Your name on lowercase is {name.ToLower()}");
 
         int number = 13;
 
-        Console.WriteLine(number.ToString());
+        WriteLine(number.ToString());
         bool isString = true;
-        Console.WriteLine(isString.ToString());
+        WriteLine(isString.ToString());
     }
 }

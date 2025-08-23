@@ -10,20 +10,20 @@ partial class Program
 
         if (isEven && isGreaterThanTen)
         {
-            Console.WriteLine($"The number {number} is even and greater than 10");
+            WriteLine($"The number {number} is even and greater than 10");
         }
         else if (!isEven && isGreaterThanTen)
         {
-            Console.WriteLine($"The number {number} is odd and greater than 10");
+            WriteLine($"The number {number} is odd and greater than 10");
 
         }
         else
         {
-            Console.WriteLine($"The number does not meet the conditions");
+            WriteLine($"The number does not meet the conditions");
         }
 
         int age = 21;
         string category = age > 18 ? "Adult" : "Young";
-        Console.WriteLine(category);
+        WriteLine(category);
     }
 }

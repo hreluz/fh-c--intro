@@ -7,12 +7,12 @@ partial class Program
         DateTime birthDate = new DateTime(1963, 08, 10);
         TimeSpan difference = DateTime.Now - birthDate;
 
-        Console.WriteLine($"You have lived {difference.Days} days");
+        WriteLine($"You have lived {difference.Days} days");
     }
 
     static void DaysUntilNextBirthday()
     {
-        Console.WriteLine("Enter your birthdate (dd/mm/aaaa): ");
+        WriteLine("Enter your birthdate (dd/mm/aaaa): ");
         string? birthDateString = Console.ReadLine()!;
         DateTime birthDate = DateTime.ParseExact(birthDateString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
@@ -25,6 +25,6 @@ partial class Program
         }
 
         int daysRemaining = (nextBirthday - currentDate).Days;
-        Console.WriteLine($"You will need to wait {daysRemaining} for your next birthdate");
+        WriteLine($"You will need to wait {daysRemaining} for your next birthdate");
     }
 }

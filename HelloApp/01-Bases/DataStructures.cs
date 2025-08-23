@@ -6,10 +6,10 @@ partial class Program
         batman.Greet();
 
         Point point = new Point { X = 301, Y = 200 };
-        Console.WriteLine($"Point ({point.X}, {point.Y})");
+        WriteLine($"Point ({point.X}, {point.Y})");
 
         CellPhone cellPhone = new CellPhone("Sony Ericson x8", 2008);
-        Console.WriteLine(cellPhone);
+        WriteLine(cellPhone);
     }
 }
 
@@ -20,7 +20,7 @@ class User
 
     public void Greet()
     {
-        Console.WriteLine($"Hello, I am the user {Name}, and I am {Age} years old");
+        WriteLine($"Hello, I am the user {Name}, and I am {Age} years old");
     }    
 }
 
