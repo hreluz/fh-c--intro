@@ -6,7 +6,10 @@
         // LoopControlExamples();
         // Conversions();
         // ConvertionToDateTime();
-        Functions();
+        // Functions();
+        printMultiplicationTable(7,15);
+        printMultiplicationTable(number:7, tableLimit:15);
+        
         #endregion
     }
 }
