@@ -15,7 +15,8 @@
         #endregion
 
         #region Classes
-        TestingClass();
+        // TestingClass();
+        Properties();
 
         #endregion
     }
