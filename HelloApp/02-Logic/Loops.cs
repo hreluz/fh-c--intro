@@ -34,5 +34,5 @@ partial class Program
         {
             WriteLine(name);
         }
-    } 
+    }
 }
