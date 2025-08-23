@@ -1,0 +1,11 @@
+1. .NET
+	https://dotnet.microsoft.com/es-es/download
+
+2.Vscode
+	https://code.visualstudio.com/
+
+3.Vscode Extensions
+	https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit
+
+
+
