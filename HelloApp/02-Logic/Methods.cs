@@ -11,11 +11,40 @@ partial class Program
         WriteLine(car.ShowInfo());
 
         Car.GeneralInfo();
+
+        Car sportsCar = new Car("BMW", 2020);
+        WriteLine(sportsCar.ShowInfo());
+
+        Car collectionCar = new Car { Model = "Cadillac", Year = 1980 };
+        WriteLine(collectionCar.ShowInfo());
+
+        List<Car> cars = new()
+        {
+            new Car(){Model="Duster", Year=2021},
+            new Car(){Model="Stepway", Year=2022},
+            new Car(){Model="Captur", Year=2024}
+        };
+
+        foreach (var item in cars)
+        {
+            WriteLine(item.ShowInfo());
+        }
     }
 }
 
 class Car
 {
+    public Car(string model, int year)
+    {
+        Model = model;
+        Year = year;
+    }
+
+    public Car()
+    {
+
+    }
+
     public string? Model { get; set; }
     public int? Year { get; set; }
 
