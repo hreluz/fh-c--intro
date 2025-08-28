@@ -24,7 +24,8 @@
         // GC.WaitForPendingFinalizers();
 
         // ProductSalesDemo();
-        BusFleet();
+        // BusFleet();
+        Inheritance();
         #endregion
     }
 }
