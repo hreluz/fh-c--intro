@@ -17,12 +17,13 @@
         #region Classes
         // TestingClass();
         // Properties();
-        Methods();
+        // Methods();
 
         // Forze destruction
-        GC.Collect();
-        GC.WaitForPendingFinalizers();
+        // GC.Collect();
+        // GC.WaitForPendingFinalizers();
 
+        ProductSalesDemo();
         #endregion
     }
 }
