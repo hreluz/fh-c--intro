@@ -25,7 +25,8 @@
 
         // ProductSalesDemo();
         // BusFleet();
-        Inheritance();
+        // Inheritance();
+        AbstractClassExamples();
         #endregion
     }
 }
