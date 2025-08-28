@@ -31,6 +31,11 @@ class Student : Character
     {
         WriteLine($"I belong to {House}");
     }
+
+    public override void Greet()
+    {
+        WriteLine($"Hello there, I am {Name}");
+    }
 }
 
 class Profesor : Character
@@ -39,5 +44,9 @@ class Profesor : Character
     public void MySubject()
     {
         WriteLine($"I teach {Subject}");
+    }
+    public virtual void Greet()
+    {
+        WriteLine($"Hello, I am {Name} and I am a teacher");
     }
 }
