@@ -45,6 +45,11 @@ class Car
 
     }
 
+    ~Car()
+    {
+        WriteLine("Destructor called, free");
+    }
+
     public string? Model { get; set; }
     public int? Year { get; set; }
 

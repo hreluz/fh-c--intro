@@ -19,6 +19,10 @@
         // Properties();
         Methods();
 
+        // Forze destruction
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+
         #endregion
     }
 }
