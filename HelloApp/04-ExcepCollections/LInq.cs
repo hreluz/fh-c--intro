@@ -1,3 +1,5 @@
+using System.Reflection.Emit;
+
 partial class Program
 {
     static void Linq()
@@ -46,12 +48,12 @@ partial class Program
 
         List<MarvelCharacter> characters = new List<MarvelCharacter>
         {
-        new MarvelCharacter { Name = "Peter Parker", Alias = "Spider-Man", Team = "Avengers" },
-        new MarvelCharacter { Name = "Tony Stark", Alias = "Iron Man", Team = "Avengers" },
-        new MarvelCharacter { Name = "Steve Rogers", Alias = "Captain America", Team = "Avengers" },
-        new MarvelCharacter { Name = "Natasha Romanoff", Alias = "Black Widow", Team = "Avengers" },
-        new MarvelCharacter { Name = "T'Challa", Alias = "Black Panther", Team = "Wakanda" },
-        new MarvelCharacter { Name = "Stephen Strange", Alias = "Doctor Strange", Team = "Defenders" }
+            new MarvelCharacter { Name = "Peter Parker", Alias = "Spider-Man", Team = "Avengers" },
+            new MarvelCharacter { Name = "Tony Stark", Alias = "Iron Man", Team = "Avengers" },
+            new MarvelCharacter { Name = "Steve Rogers", Alias = "Captain America", Team = "Avengers" },
+            new MarvelCharacter { Name = "Natasha Romanoff", Alias = "Black Widow", Team = "Avengers" },
+            new MarvelCharacter { Name = "T'Challa", Alias = "Black Panther", Team = "Wakanda" },
+            new MarvelCharacter { Name = "Stephen Strange", Alias = "Doctor Strange", Team = "Defenders" }
         };
 
         WriteLine("Avengers characters");
@@ -81,19 +83,58 @@ partial class Program
 
         WriteLine("Names in uppercase");
         WriteLine("-------------------");
-        
+
         foreach (var c in uppercaseNamesQuery)
         {
             WriteLine($"{c}");
         }
-        
+
         WriteLine();
-        
+
         foreach (var c in uppercaseNamesMethod)
         {
             WriteLine($"{c}");
         }
 
+        WriteLine();
+
+        var sortedQuery = from c in characters
+                          orderby c.Name descending
+                          select c.Name;
+
+        var sortedMethod = characters.OrderByDescending(c => c.Name);
+
+        WriteLine("Order names descending");
+        WriteLine("-------------------");
+        foreach (var name in sortedQuery)
+        {
+            WriteLine(name);
+        }
+
+        WriteLine();
+
+        foreach (var c in sortedMethod)
+        {
+            WriteLine(c.Name);
+        }
+
+        var firstThreeQuery = (from c in characters select c).Take(3);
+
+        var firstThreeMethod = characters.Take(3);
+
+        WriteLine();
+        WriteLine("First 3 characters");
+        foreach (var c in firstThreeQuery)
+        {
+            WriteLine(c.Name);
+        }
+
+        WriteLine();
+
+        foreach (var c in firstThreeMethod)
+        {
+            WriteLine(c.Name);
+        }
     }
     class MarvelCharacter
     {
