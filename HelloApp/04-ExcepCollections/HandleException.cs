@@ -10,9 +10,19 @@ partial class Program
 
             if (string.IsNullOrEmpty(amount)) return;
 
-            double amountValue = double.Parse(amount);
+            if (double.TryParse(amount, out double amountValue))
+            {
+                WriteLine($"The amount you enter was: {amountValue:C}");
+            }
+            else
+            {
+                WriteLine("It cannot transform the number");
+            }
 
-            WriteLine($"The amount you enter is :{amountValue:C}");
+            // double amountValue = double.Parse(amount);
+
+            // WriteLine($"The amount you enter is :{amountValue:C}");
+            ValidateAge(16);
         }
         catch (DivideByZeroException)
         {
@@ -27,6 +37,19 @@ partial class Program
         {
             Console.ForegroundColor = ConsoleColor.Red;
             WriteLine(ex.Message);
+        }
+        finally
+        {
+            Console.ResetColor();
+            WriteLine("This will always be executed");
+        }
+    }
+
+    static void ValidateAge(int age)
+    {
+        if (age < 18)
+        {
+            throw new ArgumentException("Age should be older than 18");
         }
     }
 }
