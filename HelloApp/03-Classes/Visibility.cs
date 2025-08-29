@@ -11,13 +11,22 @@ partial class Program
         WriteLine(jedi.PowerLevel);
         jedi.RevealSecrets();
 
-
         Sith sith = new Sith();
-        sith.ShowProtected();
+        sith.LightSaberColor = "red";
+        // sith.ShowProtected();
+        sith.UseForce();
     }
 }
 
-class Jedi
+interface IForceUser
+{
+    int PowerLevel { get; set; }
+    string LightSaberColor { get; set; }
+
+    void UseForce();
+}
+
+class Jedi:IForceUser
 {
     public string PublicField = "I am a Jedi";
     private string PrivateFields = "My personal thoughts";
@@ -44,8 +53,12 @@ class Jedi
 }
 
 
-class Sith : Jedi
+class Sith : Jedi, IForceUser
 {
+    public new void UseForce()
+    {
+        WriteLine($"I am a sith with a light sabercolor {LightSaberColor}, and my level power is {PowerLevel}");
+    }
     public void ShowProtected()
     {
         WriteLine(ProtectedField);
