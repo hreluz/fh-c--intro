@@ -32,6 +32,7 @@
         #endregion
 
         // HandleException();
-        Collections();
+        // Collections();
+        Linq();
     }
 }
