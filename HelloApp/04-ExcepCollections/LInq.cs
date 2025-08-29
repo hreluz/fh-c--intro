@@ -41,5 +41,64 @@ partial class Program
             WriteLine(number);
         }
 
+
+        //Simple Queries
+
+        List<MarvelCharacter> characters = new List<MarvelCharacter>
+        {
+        new MarvelCharacter { Name = "Peter Parker", Alias = "Spider-Man", Team = "Avengers" },
+        new MarvelCharacter { Name = "Tony Stark", Alias = "Iron Man", Team = "Avengers" },
+        new MarvelCharacter { Name = "Steve Rogers", Alias = "Captain America", Team = "Avengers" },
+        new MarvelCharacter { Name = "Natasha Romanoff", Alias = "Black Widow", Team = "Avengers" },
+        new MarvelCharacter { Name = "T'Challa", Alias = "Black Panther", Team = "Wakanda" },
+        new MarvelCharacter { Name = "Stephen Strange", Alias = "Doctor Strange", Team = "Defenders" }
+        };
+
+        WriteLine("Avengers characters");
+        WriteLine("-------------------");
+        var avengersQuery = from c in characters
+                            where c.Team == "Avengers"
+                            select $"{c.Alias} {c.Name}";
+
+        var avengersMethod = characters.Where(c => c.Team == "Avengers");
+
+        foreach (var c in avengersQuery)
+        {
+            WriteLine($"{c}");
+        }
+
+        WriteLine();
+
+        foreach (var c in avengersMethod)
+        {
+            WriteLine($"{c.Alias} {c.Name}");
+        }
+
+        var uppercaseNamesQuery = from c in characters
+                                  select c.Name?.ToUpper();
+
+        var uppercaseNamesMethod = characters.Select(c => c.Name?.ToUpper());
+
+        WriteLine("Names in uppercase");
+        WriteLine("-------------------");
+        
+        foreach (var c in uppercaseNamesQuery)
+        {
+            WriteLine($"{c}");
+        }
+        
+        WriteLine();
+        
+        foreach (var c in uppercaseNamesMethod)
+        {
+            WriteLine($"{c}");
+        }
+
+    }
+    class MarvelCharacter
+    {
+        public string? Name { get; set; }
+        public string? Alias { get; set; }
+        public string? Team { get; set; }
     }
 }
