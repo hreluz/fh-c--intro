@@ -33,6 +33,8 @@
 
         // HandleException();
         // Collections();
-        Linq();
+        // Linq();
+
+        AdvancedLinq.Program.AdvancedLINQ();
     }
 }
