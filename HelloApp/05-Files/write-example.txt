@@ -1,0 +1,2 @@
+We can write on a file
+The current time is: 00:38:25

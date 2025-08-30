@@ -39,6 +39,7 @@
         // SalesAnalysis();
         // FileExample();
         // DirectoryExample();
-        PathExample();
+        // PathExample();
+        WriteFileExample();
     }
 }
