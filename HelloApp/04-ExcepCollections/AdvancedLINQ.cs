@@ -79,6 +79,32 @@ namespace AdvancedLinq
             {
                 WriteLine($"{character.Alias} {character.Name} - Skill: {character.Description}");
             }
+
+            WriteLine();
+            WriteLine("Total character powers");
+            WriteLine("------------------------");
+
+            int totalPower = statistics.Sum(s => s.Power);
+            WriteLine($"Total power of characters: {totalPower}");
+
+            var avengersPower = (from c in characters
+                                 join s in statistics on c.Id equals s.CharacterId
+                                 where c.Team == "Avengers"
+                                 select s.Power).Average();
+            WriteLine($"Avengers power of characters: {avengersPower:F2}");
+
+            var abilitiesByCharacter = from c in characters
+                                       join a in abilities on c.Id equals a.CharacterId
+                                       group a by c.Alias into groupAbilities
+                                       select new { Character = groupAbilities.Key, Count = groupAbilities.Count() };
+
+            WriteLine("Number of skills by character");
+            WriteLine();
+
+            foreach (var character in abilitiesByCharacter)
+            {
+                WriteLine($"{character.Character}: {character.Count} skill");
+            }
         }
     }
 }
