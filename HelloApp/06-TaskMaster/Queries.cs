@@ -46,5 +46,40 @@ namespace TaskMaster
                 return Tasks;
             }
         }
+
+        public List<Task> MarkAsCompleted()
+        {
+            try
+            {
+                ResetColor();
+                Clear();
+                WriteLine("----- Mark task as completed -----");
+                WriteLine("Enter task id: ");
+                var id = ReadLine()!;
+                Task task = Tasks.Find(t => t.Id == id)!;
+
+                if (task == null)
+                {
+                    ForegroundColor = ConsoleColor.Red;
+                    WriteLine($"Task not found with the id {id} ");
+                    ResetColor();
+                    return Tasks;
+                }
+
+                task.Completed = true;
+                task.ModifiedAt = DateTime.Now;
+                ForegroundColor = ConsoleColor.Green;
+
+                WriteLine("Task mark as completed succesfully");
+                ResetColor();
+                return Tasks;
+            }
+            catch (Exception ex)
+            {
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine(ex.Message);
+                return Tasks;
+            }
+        }
     }   
 }

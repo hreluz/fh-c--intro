@@ -26,9 +26,9 @@
   {
     "Id": "935b9d9",
     "Description": "clean bedroom",
-    "Completed": false,
+    "Completed": true,
     "CreatedAt": "2025-08-31T17:06:58.3842432-05:00",
-    "ModifiedAt": "2025-08-31T17:06:58.3842504-05:00",
+    "ModifiedAt": "2025-08-31T17:11:44.4501112-05:00",
     "Deleted": false
   }
 ]
