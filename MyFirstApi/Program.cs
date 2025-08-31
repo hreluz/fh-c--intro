@@ -15,6 +15,18 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/")
+    {
+        context.Response.Redirect("/index.html");
+    }
+    else
+    {
+        await next();
+    }
+});
 
 var summaries = new[]
 {
