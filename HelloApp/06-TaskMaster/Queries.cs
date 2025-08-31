@@ -6,13 +6,11 @@ namespace TaskMaster
     {
         private List<Task> Tasks = _tasks;
 
-        public void ListTasks()
+        public static void ShowTasksTable(List<Task> tasks)
         {
-            ForegroundColor = ConsoleColor.DarkBlue;
-
             Table table = new Table("Id", "Description", "Completed");
 
-            foreach (var task in Tasks)
+            foreach (var task in tasks)
             {
                 table.AddRow(task.Id, task.Description, task.Completed);
             }
@@ -21,6 +19,11 @@ namespace TaskMaster
 
             Write(table.ToString());
             ReadKey();
+        }
+        public void ListTasks()
+        {
+            ForegroundColor = ConsoleColor.DarkBlue;
+            ShowTasksTable(Tasks);
         }
 
         public List<Task> AddTask()
@@ -80,7 +83,7 @@ namespace TaskMaster
                 WriteLine(ex.Message);
                 return Tasks;
             }
-        } 
+        }
 
         public List<Task> EditTask()
         {
@@ -116,6 +119,81 @@ namespace TaskMaster
                 WriteLine(ex.Message);
                 return Tasks;
             }
+        }
+
+        public List<Task> RemoveTask()
+        {
+            try
+            {
+                ResetColor();
+                Clear();
+                WriteLine("----- Delete Task -----");
+                WriteLine("Enter task id to delete: ");
+                var id = ReadLine()!;
+                Task task = Tasks.Find(t => t.Id == id)!;
+
+                if (task == null)
+                {
+                    ForegroundColor = ConsoleColor.Red;
+                    WriteLine($"Task not found with the id {id} ");
+                    ResetColor();
+                    return Tasks;
+                }
+
+                Tasks.Remove(task);
+
+                WriteLine("Task deleted succesfully");
+                ResetColor();
+                return Tasks;
+            }
+            catch (Exception ex)
+            {
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine(ex.Message);
+                return Tasks;
+            }
+        }
+
+        public void TasksByState()
+        {
+            Clear();
+            try
+            {
+                ResetColor();
+                WriteLine("---- Tasks by  status ----");
+                WriteLine("1.Completed");
+                WriteLine("2.Pending");
+                WriteLine("Enter an option: ");
+                string taskState = ReadLine()!;
+                if (taskState != "1" && taskState != "2")
+                {
+                    ForegroundColor = ConsoleColor.Red;
+                    WriteLine("Invalid option");
+                    ResetColor();
+                    return;
+                }
+
+                bool completed = taskState == "1";
+                List<Task> filteredTask = Tasks.Where(t => t.Completed == completed).ToList();
+
+                if (filteredTask.Count == 0)
+                {
+                    ForegroundColor = ConsoleColor.Red;
+                    WriteLine("There are not tasks with the selected options");
+                    ResetColor();
+                    return;
+                }
+
+
+                ForegroundColor = completed ? ConsoleColor.Green : ConsoleColor.Red;
+                ShowTasksTable(filteredTask);
+            }
+            catch (Exception ex)
+            {
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine($"An error happened when filtering: ",ex.Message);
+            }
+
         }
     }   
 }

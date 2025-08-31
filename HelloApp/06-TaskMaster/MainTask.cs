@@ -43,10 +43,10 @@ namespace TaskMaster
                         EditTask();
                         break;
                     case "5":
-                        // RemoveTask();
+                        RemoveTask();
                         break;
                     case "6":
-                        //TasksByState();
+                        TasksByState();
                         break;
                     case "7":
                         //TasksByDescription();
@@ -101,7 +101,33 @@ namespace TaskMaster
                 }
                 catch (Exception ex)
                 {
-                    WriteLine($"An error happened when trying to mark the task as completed: {ex.Message}");
+                    WriteLine($"An error happened when trying to edit the task: {ex.Message}");
+                }
+        }
+
+        public static void RemoveTask()
+        {
+                try
+                {
+                    var tasks = queries.RemoveTask();
+                    fileActions.WriteFile(tasks);
+
+                }
+                catch (Exception ex)
+                {
+                    WriteLine($"An error happened when trying to delete the task: {ex.Message}");
+                }
+        }
+
+        public static void TasksByState()
+        {
+                try
+                {
+                    queries.TasksByState();
+                }
+                catch (Exception ex)
+                {
+                    WriteLine($"An error happened when trying to delete the task: {ex.Message}");
                 }
         }
     }
