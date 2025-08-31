@@ -191,7 +191,37 @@ namespace TaskMaster
             catch (Exception ex)
             {
                 ForegroundColor = ConsoleColor.Red;
-                WriteLine($"An error happened when filtering: ",ex.Message);
+                WriteLine($"An error happened when filtering: ", ex.Message);
+            }
+
+        }
+        
+        public void TasksByDescription()
+        {
+            Clear();
+            try
+            {
+                ResetColor();
+                WriteLine("---- Tasks by description ----");
+                WriteLine("Enter description of task to search: ");
+                string description = ReadLine()!;
+                
+                List<Task> matchingTasks = Tasks.FindAll(t => t.Description?.Contains(description, StringComparison.OrdinalIgnoreCase) ?? false);
+
+                if (matchingTasks.Count == 0)
+                {
+                    ForegroundColor = ConsoleColor.Red;
+                    WriteLine($"There are not tasks with the description {description}");
+                    ResetColor();
+                    return;
+                }
+
+                ShowTasksTable(matchingTasks);
+            }
+            catch (Exception ex)
+            {
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine($"An error happened when filtering: ", ex.Message);
             }
 
         }
