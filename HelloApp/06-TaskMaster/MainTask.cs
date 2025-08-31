@@ -34,7 +34,7 @@ namespace TaskMaster
                         queries.ListTasks();
                         break;
                     case "2":
-                        // AddTask();
+                        AddTask();
                         break;
                     case "3":
                         // MarkAsCompleted();
@@ -63,5 +63,18 @@ namespace TaskMaster
             }
         }
 
+        public static void AddTask()
+        {
+                try
+                {
+                    var tasks = queries.AddTask();
+                    fileActions.WriteFile(tasks);
+
+                }
+                catch (Exception ex)
+                {
+                    WriteLine($"An error happened when adding the task: {ex.Message}");
+                }
+        }
     }
 }
