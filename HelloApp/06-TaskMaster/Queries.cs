@@ -80,6 +80,42 @@ namespace TaskMaster
                 WriteLine(ex.Message);
                 return Tasks;
             }
+        } 
+
+        public List<Task> EditTask()
+        {
+            try
+            {
+                ResetColor();
+                Clear();
+                WriteLine("----- Edit Task -----");
+                WriteLine("Enter task id to edit: ");
+                var id = ReadLine()!;
+                Task task = Tasks.Find(t => t.Id == id)!;
+
+                if (task == null)
+                {
+                    ForegroundColor = ConsoleColor.Red;
+                    WriteLine($"Task not found with the id {id} ");
+                    ResetColor();
+                    return Tasks;
+                }
+
+                Write("Enter the description's task: ");
+                task.Description = ReadLine()!;
+                task.ModifiedAt = DateTime.Now;
+                ForegroundColor = ConsoleColor.Green;
+
+                WriteLine("Task updated succesfully");
+                ResetColor();
+                return Tasks;
+            }
+            catch (Exception ex)
+            {
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine(ex.Message);
+                return Tasks;
+            }
         }
     }   
 }
