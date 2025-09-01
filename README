@@ -3,3 +3,4 @@
 
 2.Create a .NET project
 	dotnet new webapi --name MyFirstApi
+	dotnet new webapi --name TaskMasterAPI
